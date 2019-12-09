@@ -1,0 +1,26 @@
+#logo {
+    width:60px;
+    height: 60px;
+    margin-top: 0%;
+}
+
+.list{
+    margin-bottom: 0px;
+}
+.Navigation {
+    /* width: 100%; */
+    /* height: 14vh; */
+    /* height: 30%; */
+    background-color: #f8f9fa;
+    color: rgba(0,0,0,.7);
+ /* position: fixed; */
+    top: 0;
+
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+     border-bottom: 1px solid rgb(201, 202, 203);
+    border-top: 1px solid rgb(201, 202, 203); 
+}
