@@ -1,3 +1,30 @@
+## Task Manager ##
+
+## Login with ADMIN credentials - username: demetra, password: demetra
+ - Admin can add a new task.
+ - Admin can add a new admin from existed users
+ - Admin can approve a pending task
+ 
+## Login with USER credentials
+ - User can start a task from the list
+ - User can end a task (pending an approval)
+ - Every user has a list that includes his completed and open tasks(started) 
+ 
+## APP
+ - List of all published tasks (admin and user)
+ - List of users (admin)
+ - List of all completed task admin and user)
+ - List of all pending task (admin)
+ - List of all tasks in progress (admin and user)
+ 
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
