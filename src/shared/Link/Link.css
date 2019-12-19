@@ -1,5 +1,5 @@
 nav .listItem a {
-  color: rgba(0,0,0,.5);
+  color:black;
   text-decoration: none;
 }
 
@@ -59,7 +59,7 @@ aside .listItem {
 
 aside .listItem a {
   /* color: #234465; */
-  color: rgba(0,0,0,.5);
+  color: black;
   text-align: center;
   text-decoration: none;
   padding-top: 5%;

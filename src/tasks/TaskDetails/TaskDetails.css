@@ -1,0 +1,42 @@
+
+
+
+.TaskDetails {
+    margin-top:40px;
+    width: 70%;
+    border: 3px;
+    border-style: dotted;
+    border-color: darkgray;
+    margin-left: 12%;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+   }
+
+.TaskDetails button{
+    margin-right: 2px;
+    width: 20%;
+}
+
+.TaskDetails h2 {
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.TaskDetails p{
+    margin-bottom: 20px;
+    width: 30%;
+    
+}
+.btn-details-start{
+    background-color: rgb(15, 146, 65);
+}
+
+.TaskDetails button:hover{
+    /* opacity: 0.7; */
+    background-color:black ;
+  }
+  
+  button.btn-details-start:hover{
+    background-color: rgb(14, 100, 47);
+}

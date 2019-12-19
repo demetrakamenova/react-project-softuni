@@ -1,0 +1,30 @@
+.CreateTask {
+    margin-top: 3%;
+}
+
+textarea {
+    width:  85%;
+    margin-top: 15%;
+    display: block;
+    resize: none;
+    padding: 2%;
+    height: 50vh;
+    border-radius: 6px;
+    border: 1px solid grey;
+    color: black;
+}
+
+.CreateTask button {
+    width: 30%;
+    margin-top: 10%;
+}
+
+.create-task {
+    float: left;
+    width: 30%;
+    text-align: left;
+}
+
+input.create-task {
+    width: 57%;
+}

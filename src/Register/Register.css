@@ -1,0 +1,40 @@
+.Register {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 2%;
+}
+
+button {
+    width: 30%;
+}
+
+.error {
+    color: red;
+}
+
+.form-control {
+    width: 30%;
+    margin: 0 auto;
+    padding: 1%;
+    text-align: center;
+}
+
+label {
+    float: left;
+    width: 30%;
+    text-align: right;
+}
+
+input {
+    text-align: center;
+    border: 1px solid #5b6269;
+    padding: 1%;
+    width: 50%;
+    border-radius: 6px;
+    color: #464d53;
+}
+
+form button:hover{
+    background-color:black ;
+}

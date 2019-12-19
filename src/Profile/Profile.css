@@ -1,0 +1,13 @@
+.Profile {
+    width: 50%;
+    margin-left: 40%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.5%;
+}
+
+.Profile img {
+    padding-left: 9%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}

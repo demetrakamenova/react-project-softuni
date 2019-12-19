@@ -1,0 +1,7 @@
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+button.permissions {
+    background-color:rgb(209, 50, 2);
+}
