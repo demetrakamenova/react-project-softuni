@@ -94,7 +94,7 @@ function App() {
                   {state.isAuthenticated && <Route path="/user-tasks" component={(props)=><Main title="My Task"><TaskList {...props} typeList="myTasks" userId={state.userId}/></Main> }/>}
                   {state.isAuthenticated && <Route path="/task-in-progress" component={(props)=><Main title="In Progress"><TaskList {...props} typeList="inProgress" userId={state.userId}/></Main> }/>}
                   {state.isAuthenticated && <Route path="/completed-tasks" component={(props)=><Main title="Completed Task"><TaskList {...props} typeList="completed"/></Main> }/>}
-                  {state.isAuthenticated && <Route path="/profile" component={(props)=><Main title="Profile"><Profile/></Main> }/>}
+                  {state.isAuthenticated && <Route path="/profile" component={(props)=><Main title="Profile"><Profile user={state.user} userId={state.userId}/></Main> }/>}
 
                   {state.isAuthenticated && <Route path="/task-details/:id"  component={(props)=><Main title="Task Details"><TaskDetails {...props}/></Main> }/>}
                  
