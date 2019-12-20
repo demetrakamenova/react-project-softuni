@@ -11,12 +11,12 @@ function Task({ title, children, author, id, ...props }) {
     const [info, setInfo] = React.useState(null);
 
     React.useEffect(() => {
-
-        const statusId = props.inProgress || props.completed || props.pendingApproval;;
+        //the if of the user
+        const statusId = props.inProgress || props.completed;;
         // make additional requests for the username (selected by id)
 
         if (statusId) {
-            console.log("--");
+            //make request only if any of the props exist and get the id to find the user
             userService.getUser(statusId).then((user) => {
                 setUser(user);
             });
@@ -34,7 +34,7 @@ function Task({ title, children, author, id, ...props }) {
     function handleBtnEndTask() {
 
         taskService.getCurrentTask(id).then((task) => {
-    
+
             const data = task;
             const itemInfo = {
                 ...data,
@@ -52,12 +52,9 @@ function Task({ title, children, author, id, ...props }) {
 
     function handleBtnApproval() {
 
-        console.log(props);
-
         taskService.getCurrentTask(id).then((task) => {
 
             const data = task;
-            console.log(props._id);
             const itemInfo = {
                 ...data,
                 completedFrom: data.pendingApproval,
@@ -75,25 +72,25 @@ function Task({ title, children, author, id, ...props }) {
     }
 
     function handleBtnReject() {
+
         taskService.getCurrentTask(id).then((task) => {
-     
-             const data = task;
-             console.log(props._id);
-             const itemInfo = {
-                 ...data,
-                 completedFrom: null,
-                 pendingApproval: null,
-                 inProgress: data.pendingApproval,
-             }
- 
-             taskService.editTask(itemInfo, task._id).then((data) => {
-                 setInfo("Success");
-                 setTimeout(() => {
-                     setInfo(null);
-                 }, 2000);
-                 setDeleted(true);
-             });
-         });
+            const data = task;
+            console.log(props._id);
+            const itemInfo = {
+                ...data,
+                completedFrom: null,
+                pendingApproval: null,
+                inProgress: data.pendingApproval,
+            }
+
+            taskService.editTask(itemInfo, task._id).then(() => {
+                setInfo("Success");
+                setTimeout(() => {
+                    setInfo(null);
+                }, 2000);
+                setDeleted(true);
+            });
+        });
     }
 
     return deleted ? info && <div className="card notifications"><h1>{info}</h1></div> : (

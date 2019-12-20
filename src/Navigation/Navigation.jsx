@@ -9,7 +9,7 @@ function Navigation() {
 
     return (<nav className="Navigation">
         <ul className="list">
-            <Link>
+            <Link to="/tasks">
                 <img id="logo" src="https://unfuddle.com/assets/product-summary-tasks-5a6d6625ed37fb42e18a61c2c24087ee.png" alt="logo" />
             </Link>
 

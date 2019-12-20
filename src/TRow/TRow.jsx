@@ -9,6 +9,7 @@ function TRow({ username, userId }) {
     const [info, setInfo] = React.useState(null);
 
     React.useEffect(() => {
+       
         taskService.getCompletedTasksByUser(userId).then(data => {
             const userInfo = { [userId]: Array.from(data).length };
             setUserCompleted(userInfo);
@@ -28,7 +29,7 @@ function TRow({ username, userId }) {
         <tr>
             <td>{username}</td>
             {userCompleted && <td>{userCompleted[userId]}</td>}
-            <td><button className="permissions" onClick={(e)=> {handleChangePermissions(e)}}>ADD ADMIN</button></td>
+            <td><button className="permissions" onClick={handleChangePermissions}>ADD ADMIN</button></td>
         </tr>
     );
 };

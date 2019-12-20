@@ -6,9 +6,9 @@ import taskService from '../../services/tasks-service';
 function TaskList(props) {
     
     const [tasks, setTasks] = React.useState(null);
-    
+ 
     React.useEffect(() => {
-
+      //  console.log("------");
         if(props.typeList === "open"){
 
             taskService.getAllTasks().then(tasks => {
@@ -38,7 +38,7 @@ function TaskList(props) {
               });
         }
 
-    }, [props.typeList, props.userId]);
+    }, [props.typeList, props.userId, ]);
 
     return (
         <div>

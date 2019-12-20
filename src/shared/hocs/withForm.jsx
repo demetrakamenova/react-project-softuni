@@ -6,9 +6,12 @@ const runControlValidation = (value, validations) => {
   
   export const getValidationsRunnerForSchema = schema => form => {
     if (!schema) { return Promise.resolve(); }
+    //runs only upto first validator that fails 
     return schema.validate(form, { abortEarly: false })
       .then(() => form).catch(err => {
+        //inner r is an array of ValidationErrors throw earlier in the validation chain. When the abortEarly option is false this is where you can inspect each error thrown
         const errors = err.inner.reduce((acc, { path, message }) => {
+          
           acc[path] = (acc[path] || []).concat(message);
           return acc;
         }, {});

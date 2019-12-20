@@ -26,8 +26,6 @@ function makeRequest(baseUrl, headers) {
 const taskService = {
 
     getAllTasks: function () {
-
-
         let token = reloadToken();
         const auth = {
             'Content-Type': 'application/json',
@@ -77,6 +75,7 @@ const taskService = {
     },
 
     getCompletedTasks: function () {
+
         let token = reloadToken();
         const auth = {
             'Content-Type': 'application/json',

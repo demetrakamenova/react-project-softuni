@@ -71,7 +71,7 @@ function App() {
     useEffect(() => {
         if(state.token){
         userService.getUser(state.userId).then((data) => {
-          console.log(data)
+          //console.log(data)
           dispatch({
             type: "AUTH_RELOAD_PAGE",
             payload: data
@@ -90,22 +90,23 @@ function App() {
            <div className="Container">
                <Aside />
                 <Switch>
-                  {state.isAuthenticated && <Route path="/tasks"  component={(props)=><Main title="Tasks"><TaskList {...props} typeList="open" userId={state.userId}/></Main> }/>}
-                  {state.isAuthenticated && <Route path="/user-tasks" component={(props)=><Main title="My Task"><TaskList {...props} typeList="myTasks" userId={state.userId}/></Main> }/>}
-                  {state.isAuthenticated && <Route path="/task-in-progress" component={(props)=><Main title="In Progress"><TaskList {...props} typeList="inProgress" userId={state.userId}/></Main> }/>}
-                  {state.isAuthenticated && <Route path="/completed-tasks" component={(props)=><Main title="Completed Task"><TaskList {...props} typeList="completed"/></Main> }/>}
-                  {state.isAuthenticated && <Route path="/profile" component={(props)=><Main title="Profile"><Profile user={state.user} userId={state.userId}/></Main> }/>}
+                  {state.isAuthenticated && <Route path="/tasks"  render={(props)=><Main title="Tasks"><TaskList {...props} typeList="open" userId={state.userId}/></Main> }/>}
+                  {state.isAuthenticated && <Route path="/user-tasks" component={()=><Main title="My Task"><TaskList typeList="myTasks" userId={state.userId}/></Main> }/>}
+                  {state.isAuthenticated && <Route path="/task-in-progress" component={()=><Main title="In Progress"><TaskList  typeList="inProgress" userId={state.userId}/></Main> }/>}
+                  {state.isAuthenticated && <Route path="/completed-tasks" component={()=><Main title="Completed Task"><TaskList typeList="completed"/></Main> }/>}
+                  {state.isAuthenticated && <Route path="/profile" render={()=><Main title="Profile"><Profile user={state.user} userId={state.userId}/></Main> }/>}
 
-                  {state.isAuthenticated && <Route path="/task-details/:id"  component={(props)=><Main title="Task Details"><TaskDetails {...props}/></Main> }/>}
+                  {state.isAuthenticated && <Route path="/task-details/:id"  render={(props)=><Main title="Task Details"><TaskDetails {...props}/></Main> }/>}
                  
-                  {state.isAuthenticated && <Route path="/logout"  component={(props)=><Logout/>} />}
-                  {state.isAdmin && <Route path="/create-task"  component={(props)=><Main title="Create Task">{<CreateTask { ...props} username={state.user}/>}</Main> }/>}
-                  {state.isAdmin && <Route path="/manage-list" component={(props)=><Main title="Permissions">{<UserList/>}</Main> }/>}
-                  {state.isAdmin && <Route path="/pending-tasks" component={(props)=><Main title="Pending Task"><TaskList {...props} typeList="pending" userId={state.userId}/></Main> }/>}
-                  {!state.isAuthenticated ?  <Route path="/login" exact component={(props)=><Main title="Login"><Login {...props}  /></Main>}/>:<Redirect to="/tasks"/> }
-                  {!state.isAuthenticated ?  <Route path="/register" component={(props)=><Main title="Register"><Register {...props} /></Main>}/>:<Redirect to="/tasks"/> }
+                  {state.isAuthenticated && <Route path="/logout"  render={()=><Logout/>} />}
+                  {state.isAdmin && <Route path="/create-task"  render={(props)=><Main title="Create Task">{<CreateTask { ...props} username={state.user}/>}</Main> }/>}
+                  {state.isAdmin && <Route path="/manage-list" render={()=><Main title="Permissions">{<UserList/>}</Main> }/>}
+                  {state.isAdmin && <Route path="/pending-tasks" component={()=><Main title="Pending Task"><TaskList typeList="pending" userId={state.userId}/></Main> }/>}
+                  {!state.isAuthenticated ?  <Route path="/login" exact render={()=><Main title="Login"><Login/></Main>}/>:<Redirect to="/tasks"/> }
+                  {!state.isAuthenticated ?  <Route path="/register" render={(props)=><Main title="Register"><Register {...props}/></Main>}/>:<Redirect to="/tasks"/> }
+                 
                   <Route path="*">
-                    <Redirect to="/login"/>
+                   <Redirect to="/login"/>
                    {/* <Main title="Something went wrong"><NotFound/></Main> */}
                   </Route>
                   </Switch>    

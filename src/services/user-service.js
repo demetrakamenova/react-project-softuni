@@ -2,6 +2,13 @@
 const appKey = 'kid_rkuQ7DApS';
 const appSecret = '63b420d5a1fe4624ab0e1435123ea1cc';
 
+function handler(response) {
+    if (response.status >= 400) {
+        throw Error('Error:');
+    }
+    return response.json();
+}
+
 const userService = {
 
     register: function (data) {
@@ -10,30 +17,17 @@ const userService = {
             'Content-Type': 'application/json',
             Authorization: 'Basic ' + btoa(appKey + ':' + appSecret),
         };
-
         const userData = {
             username: data.username,
             password: data.password
         }
         const baseUrl = `https://baas.kinvey.com/user/${appKey}`;
-
         const headers = {
             method: 'POST',
             credentials: 'include',
             body: JSON.stringify(userData),
             headers: auth,
         };
-
-        function handler(response) {
-
-            if (response.status >= 400) {
-
-                throw Error('Error:');
-            }
-
-            return response.json();
-        }
-
 
         return fetch(baseUrl, headers)
             .then(handler)
@@ -49,57 +43,30 @@ const userService = {
             'Content-Type': 'application/json',
             Authorization: 'Basic ' + btoa(data.username + ':' + data.password),
         };
-
         const baseUrl = `https://baas.kinvey.com/user/${appKey}/login`;
-
         const headers = {
             method: 'POST',
             body: JSON.stringify(data),
             headers: auth,
         };
 
-        function handler(response) {
-
-            if (response.status >= 400) {
-
-                throw Error("Your username or passoword is wrong");
-            }
-
-            return response.json();
-        }
-
-
         return fetch(baseUrl, headers)
             .then(handler)
             .then((res) => res)
-
     },
 
 
     logout: function () {
 
         const token = JSON.parse(localStorage.getItem('token'));
-
         const auth = {
             Authorization: `Kinvey ${token}`
         };
-
         const baseUrl = `https://baas.kinvey.com/user/${appKey}/_logout`;
-
         const headers = {
             method: 'POST',
             headers: auth,
         };
-
-        function handler(response) {
-
-            if (response.status >= 400) {
-                throw Error("Error");
-            }
-
-            return response.json();
-        }
-
 
         return fetch(baseUrl, headers)
             .then(handler)
@@ -112,28 +79,13 @@ const userService = {
     getUser: function (id) {
 
         const token = JSON.parse(localStorage.getItem('token'));
-        // const userId = JSON.parse(id);
-
         const auth = {
             Authorization: `Kinvey ${token}`
         };
-
         const baseUrl = `https://baas.kinvey.com/user/${appKey}/${id}`;
-
         const headers = {
             headers: auth,
         };
-
-        function handler(response) {
-
-            if (response.status >= 400) {
-
-                throw Error('Error:');
-            }
-
-            return response.json();
-        }
-
 
         return fetch(baseUrl, headers)
             .then(handler)
@@ -146,27 +98,13 @@ const userService = {
     getUsers: function () {
 
         const token = JSON.parse(localStorage.getItem('token'));
-
         const auth = {
             Authorization: `Kinvey ${token}`
         };
-
         const baseUrl = `https://baas.kinvey.com/user/${appKey}?query={"isAdmin": null}`;
-
         const headers = {
             headers: auth,
         };
-
-        function handler(response) {
-
-            if (response.status >= 400) {
-
-                throw Error('Error:');
-            }
-
-            return response.json();
-        }
-
 
         return fetch(baseUrl, headers)
             .then(handler)
@@ -179,15 +117,11 @@ const userService = {
     updateUser: function (id) {
 
         const token = JSON.parse(localStorage.getItem('token'));
-
         const auth = {
             'Content-Type': 'application/json',
             Authorization: `Kinvey ${token}`,
         };
-
         const baseUrl = `https://baas.kinvey.com/user/${appKey}/${id}`;
-
-
         const headers = {
             method: 'PUT',
             body: JSON.stringify({
@@ -195,13 +129,6 @@ const userService = {
             }),
             headers: auth,
         };
-
-        function handler(response) {
-            if (response.status >= 400) {
-                throw Error('Error:');
-            }
-            return response.json();
-        }
 
         return fetch(baseUrl, headers)
             .then(handler)

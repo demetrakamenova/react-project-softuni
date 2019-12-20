@@ -16,7 +16,7 @@ class Register extends React.Component {
 
         //TO DO 
         //this.props.clearFormErrorState()
-
+        //props from high order function withForm
         this.props.runValidations().then(formData => {
             const errors = this.props.getFormErrorState();
             console.log(errors);
