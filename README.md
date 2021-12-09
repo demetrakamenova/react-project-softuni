@@ -1,6 +1,6 @@
 ## Task Manager ##
 
-## Login with ADMIN credentials - username: demetra, password: demetra
+## Login with ADMIN credentials - username: , password: 
  - Admin can add a new task.
  - Admin can add a new admin from existed users
  - Admin can approve a pending task
