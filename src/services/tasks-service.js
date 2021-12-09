@@ -1,6 +1,4 @@
-const appKey = 'kid_rkuQ7DApS';
-
-
+const appKey = '';
 function reloadToken() {
     const token = JSON.parse(localStorage.getItem('token'));
     return token;
