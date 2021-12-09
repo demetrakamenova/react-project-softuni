@@ -1,6 +1,6 @@
 
-const appKey = 'kid_rkuQ7DApS';
-const appSecret = '63b420d5a1fe4624ab0e1435123ea1cc';
+const appKey = '';
+const appSecret = '';
 
 function handler(response) {
     if (response.status >= 400) {
